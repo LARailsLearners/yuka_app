@@ -2,6 +2,16 @@
 
 <h1>Listing Products</h1>
 
+<div>
+  <% if user_signed_in? %>
+    <p>Logged in as  <strong> <%= current_user.email %></strong></p>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class=> "navbar-link" %>
+  <% else %>
+    <%= link_to "Sign up", new_user_session_registration_path, :class=> "navbar-link" %>
+    <%= link_to "Login", new_user_session_path, :class=> 'navbar-link' %>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>
