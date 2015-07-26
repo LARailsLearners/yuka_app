@@ -2,8 +2,11 @@
 
 <div class="container">
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
+  <%= render 'shared/navi' %>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal") do |f| %>
+    <div class="form-group">
+      <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %>
     </div>
@@ -20,9 +23,10 @@
       </div>
     <% end -%>
 
-    <div class="btn btn-primary actions">
+    <div class="actions">
       <%= f.submit "Log in" %>
     </div>
   <% end %>
+  </div>
+  <%= render "devise/shared/links" %>
 </div>
-<%= render "users/shared/links" %>
